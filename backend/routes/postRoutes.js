@@ -10,7 +10,6 @@ postRouter.post(
   '/create',
   expressAsyncHandler(async (req, res) => {
     const post = await Post.create(req.body);
-    console.log(post)
     if (post) {
       res.status(200)
       res.json(post);
@@ -78,13 +77,14 @@ postRouter.delete(
 postRouter.get(
   '/:id',
   expressAsyncHandler(async (req, res) => {
+   
     const post = await Post.findById(req.params.id);
     if (post) {
       res.status(200);
       res.json(post);
     } else {
       res.status(500);
-      throw new Error('There are no books');
+      throw new Error('There are no posts');
     }
   })
 );

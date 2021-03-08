@@ -6,15 +6,14 @@ import { updatePostAction } from '../../redux/actions/posts/postActions';
 const EditPosts = () => {
    
   
-const {post} =  useSelector(state => state.getPost)
+const post =  useSelector(state => state.getPost)    
 
-console.log(post)
-    
+console.log()  
+
+const [keywords, setKeywords] = useState(post?.keywords);
+const [title, setTitle] = useState(post?.title);
+const [content, setContent] = useState(post?.content);
 const dispatch = useDispatch();
-
-  const [keywords, setKeywords] = useState(post?.keywords);
-  const [title, setTitle] = useState(post?.title);
-  const [content, setContent] = useState(post?.content);
 
   //dispatch
 

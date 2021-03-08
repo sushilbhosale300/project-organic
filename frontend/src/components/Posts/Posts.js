@@ -6,30 +6,36 @@ import {Link} from 'react-router-dom'
 const Posts = (props) => {
   const dispatch = useDispatch();
 
-  useEffect(() => {
-    //dispatch action
-    dispatch(fetchPostsAction());
-  }, [dispatch]);
-
+  
   //GRAB THE DATA FROM OUR STORE
   const { posts, loading } = useSelector(state => {
     return state.postsList;
   });
   
-
   
-
+  
   const handleDelete = (id) =>{
     dispatch(deletePostAction(id));
-
+    
   }
-
-
+  
+  
   const handleEdit = (id) =>{
     dispatch(getPostsAction(id));
     props.history.push(`/editpost/${id}`)
-
+    
   }
+
+  useEffect(() => {
+    //dispatch action
+    dispatch(fetchPostsAction());
+
+  }, [dispatch]);
+
+  useEffect( () =>{
+    dispatch(getPostsAction());
+  },[dispatch])
+
 
   return (
     <div>
@@ -57,7 +63,7 @@ const Posts = (props) => {
                           <tr className='table-dark'>
                             <th scope='row'>{post.title}</th>
                             <td>{post.content}</td>
-                            <td>{post.keywords}</td>
+                            <td>{post.keywords.map((key)=>key+",")}</td>
                             <td>
                               <button
                                 className='fas fa-trash '
