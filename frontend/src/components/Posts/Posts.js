@@ -57,14 +57,14 @@ const Posts = (props) => {
                           <tr className='table-dark'>
                             <th scope='row'>{post.title}</th>
                             <td>{post.content}</td>
-                            <td>{posts.keywords}</td>
+                            <td>{post.keywords}</td>
                             <td>
                               <button
                                 className='fas fa-trash '
                                 style={{
                                   color: 'red',
                                   cursor: 'progress',
-                                }} onClick={console.log("user")}></button>
+                                }} onClick={e=>handleDelete(post._id)}></button>
                               
                               <button
                                 className='far fa-edit'

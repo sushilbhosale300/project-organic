@@ -23,7 +23,9 @@ const createPostAction = (postData) => {
       });
 
       const {userInfo}  = getState().userLogin;
-      var keys = postData.keywords.toString().split[','];
+      
+      let keys=postData.keywords.toString().split(",");
+      console.log(keys);
       let post = JSON.stringify({
         title:postData.title,
         content:postData.content,
