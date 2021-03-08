@@ -1,7 +1,7 @@
 {
-  "name": "book-keeping-app",
+  "name": "post-keeping-app",
   "version": "1.0.0",
-  "description": "Book keeping app",
+  "description": "Post keeping app",
   "main": "server.js",
   "scripts": {
     "start": "node backend/server.js",
